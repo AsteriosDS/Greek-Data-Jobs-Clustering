@@ -10,4 +10,4 @@ requests_html
 psycopg2
 swifter
 geopy
-postgresql
+postgres

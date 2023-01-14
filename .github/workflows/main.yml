@@ -1,0 +1,39 @@
+name: Job Board Automated
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 1-5"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: repo
+        name: Repo Checkout
+        uses: actions/checkout@v2
+      - id: python
+        name: Python Setup and Packages Instalation
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r automate_req.txt
+      - id: jupyter
+        name: Jupyter Notebook Execution
+        run: jupyter execute Job Portal (Webscraping_postgress_cleaning).ipynb
+        shell: bash
+        
+        # add new files into repo folder
+      - id: commit
+        name: Commit Files
+        run:
+          git config --local user.name actions-user
+          git config --local user.email 'actions@github.com'
+          git add *
+          git commit -m 'scheduled run succesful'
+          git push origin main
+      - env:
+          REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+          username: github-actions
+      

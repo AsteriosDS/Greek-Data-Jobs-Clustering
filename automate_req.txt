@@ -2,7 +2,7 @@ jupyterlab
 nbclient
 requests
 bs4
-tqdm.notebook
+tqdm
 pandas
 datetime
 numpy

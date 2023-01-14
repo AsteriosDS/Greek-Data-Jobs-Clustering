@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -11,22 +8,16 @@ import base64
 import folium
 from folium.plugins import HeatMap
 from streamlit_folium import st_folium
-from pathlib import Path
+import os
 
 
-# In[ ]:
+path = os.path.dirname(__file__)
+my_file = path+'/job_board.csv'
 
 
-job_board_csv = Path(__file__).parents[1] / 'ML-Portfolio/Web_Scraped_Job_Portal/job_board.csv'
 
+df = pd.read_csv(my_file)
 
-# In[2]:
-
-
-df = pd.read_csv(job_board_csv)
-
-
-# In[3]:
 
 
 st.set_page_config(
@@ -42,7 +33,6 @@ st.set_page_config(
 )
 
 
-# In[4]:
 
 
 st.title('Web Scraped Job Board')
@@ -51,8 +41,6 @@ st.markdown("""
 ### This app displays web scraped data science,analysis and engineering jobs!
 """)
 
-
-# In[5]:
 
 
 # Sidebar Area
@@ -68,7 +56,6 @@ level = st.sidebar.multiselect('Experience Level', df.level.unique(), df.level.u
 job_type = st.sidebar.multiselect('Job Type', df.job_type.unique(), df.job_type.unique())
 
 
-# In[6]:
 
 
 # Filtering data
@@ -112,15 +99,8 @@ st.header('The majority of the listings are in/near Athens')
 
 map = folium.Map(location=[37.983810, 23.727539], zoom_start=5, scrollWheelZoom=False, tiles='CartoDB positron')
 
-data = df[['latitude','longitude']].dropna().to_numpy().tolist()
+data = df_selected_jobs[['latitude','longitude']].dropna().to_numpy().tolist()
 
 HeatMap(data = data).add_to(map)
 
 st_map = st_folium(map, width=700, height=450)
-
-
-# In[ ]:
-
-
-
-

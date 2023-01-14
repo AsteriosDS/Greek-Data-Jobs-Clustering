@@ -1,3 +1,5 @@
+jupyterlab
+nbclient
 requests
 bs4
 tqdm.notebook

@@ -1,6 +1,6 @@
 # Web Scraped Job Portal Project
 ---
-# Interactive dashboard: [click here]([https://asteriosds-ml-portfolio-web-scraped-job-portaljob-board-p2x3xc.streamlit.app/?fbclid=IwAR3ckIlzF0Ofwew8Q9GFKAwacgb0Mvsw6wa-pYDOtF_gfoen9-WUdr9sy5I](https://asteriosds-web-scraped-job-board-job-board-h41of5.streamlit.app/))
+# Interactive dashboard: [click here](https://asteriosds-web-scraped-job-board-job-board-h41of5.streamlit.app/)
 ---
 ## Project Description:
 ---

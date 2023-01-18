@@ -27,6 +27,14 @@ jobs:
       name: Repo Checkout
       uses: actions/checkout@v2
       
+    - id: python
+      name: Python Setup & Packages Installation
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+    - run: pip install -r auto_req.txt
+    
     - name: Set environment variables      
       env:
        DB_HOST: ${{ secrets.DB_HOST }}
@@ -41,14 +49,6 @@ jobs:
        echo "DB_PORT= $DB_PORT"
        echo "DB_USER= $DB_USER"
        echo "DB_PASSWORD= $DB_PASSWORD"
-        
-    - id: python
-      name: Python Setup & Packages Installation
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-        cache: 'pip'
-    - run: pip install -r auto_req.txt
 
     - id: jupyter 
       name: Jupyter Notebook Execution

@@ -19,3 +19,10 @@ jobs:
 
     - name: Run container
       run: docker run -d --name jobs-container -p 80:80 asteriosman/jobs:latest
+      
+    - name: Create new image
+      run: docker commit jobs-container asteriosman/jobs:latest
+
+    - name: Push new image
+      run: docker push asteriosman/jobs:latest
+

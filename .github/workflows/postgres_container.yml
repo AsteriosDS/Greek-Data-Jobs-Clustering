@@ -1,0 +1,20 @@
+name: Push to GCR
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build container
+      run: docker build . -f Dockerfile.dockerfile -t jobs
+
+    - name: Log in to GitHub Container Registry
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ secrets.GITHUB_ACTOR }} --password-stdin
+
+    - name: Push container
+      run: docker push ghcr.io/AsteriosDS/Web-Scraped-Job-Board/jobs:latest

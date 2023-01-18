@@ -1,0 +1,10 @@
+requests
+bs4
+tqdm.notebook
+pandas
+datetime
+numpy
+requests_html
+psycopg2
+swifter
+geopy

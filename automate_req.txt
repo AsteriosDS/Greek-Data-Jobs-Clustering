@@ -1,5 +1,6 @@
 requests
 bs4
+tqdm
 pandas
 datetime
 numpy

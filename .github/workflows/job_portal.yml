@@ -33,7 +33,7 @@ jobs:
       with:
         python-version: '3.9'
         cache: 'pip'
-    - run: pip install -r automate_req.txt
+    - run: pip install -r auto_req.txt
 
     - id: jupyter 
       name: Jupyter Notebook Execution

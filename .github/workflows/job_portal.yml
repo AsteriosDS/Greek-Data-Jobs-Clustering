@@ -29,17 +29,17 @@ jobs:
       
     - name: Set environment variables
       run: |
-       echo "DB_HOST=${{ variables.DB_HOST }}"
-       echo "DB_NAME=${{ variables.DB_NAME }}"
-       echo "DB_PORT=${{ variables.DB_PORT }}"
-       echo "DB_USER=${{ variables.DB_USER }}"
-       echo "DB_PASSWORD=${{ variables.DB_PASSWORD }}"
+       echo "DB_HOST=${{ secrets.DB_HOST }}"
+       echo "DB_NAME=${{ secrets.DB_NAME }}"
+       echo "DB_PORT=${{ secrets.DB_PORT }}"
+       echo "DB_USER=${{ secrets.DB_USER }}"
+       echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}"
       env:
-       DB_HOST: ${{ variables.DB_HOST }}
-       DB_NAME: ${{ variables.DB_NAME }}
-       DB_PORT: ${{ variables.DB_PORT }}
-       DB_USER: ${{ variables.DB_USER }}
-       DB_PASSWORD: ${{ variables.DB_PASSWORD }}
+       DB_HOST: ${{ secrets.DB_HOST }}
+       DB_NAME: ${{ secrets.DB_NAME }}
+       DB_PORT: ${{ secrets.DB_PORT }}
+       DB_USER: ${{ secrets.DB_USER }}
+       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
         
     - id: python

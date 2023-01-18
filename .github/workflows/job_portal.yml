@@ -1,4 +1,4 @@
-name: Pull and run container
+name: Automated Job Portal
 
 on:
   workflow_dispatch:

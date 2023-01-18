@@ -51,7 +51,7 @@ jobs:
 
     - id: jupyter 
       name: Jupyter Notebook Execution
-      run: jupyter execute Jobs.ipynb
+      run: jupyter execute test.ipynb
       shell: bash 
 
  # Add new files in folder, commit along with other modified files, push

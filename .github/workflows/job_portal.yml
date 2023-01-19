@@ -20,7 +20,8 @@ jobs:
       run: docker pull asteriosman/jobs:latest
 
     - name: Run container
-      run: docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:latest
+      run: docker run -d --name jobs-container -v jobsvol:/var/lib/postgresql/data -p 5432:5432 asteriosman/jobs:latest
+
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: repo 

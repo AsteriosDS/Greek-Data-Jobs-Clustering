@@ -18,8 +18,9 @@ jobs:
 
     - name: Pull and run container
       run: |
-        docker pull asteriosman/jobs:empty
-        docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:empty
+        docker pull asteriosman/jobs:jobs
+        docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:jobs
+        run psql -U postgres -d postgres -a -f /docker-entrypoint-initdb.d/new.sql
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: repo 
@@ -42,7 +43,8 @@ jobs:
        DB_USER: ${{ secrets.DB_USER }}
        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       
-      run: jupyter execute Jobs.ipynb
+      run: |
+            jupyter execute Jobs.ipynb
       shell: bash   
 
  # Add new files in folder, commit along with other modified files, push

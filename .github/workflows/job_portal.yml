@@ -20,7 +20,7 @@ jobs:
       run: docker pull asteriosman/jobs:jobs
 
     - name: Run container
-      run: docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:latest
+      run: docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:jobs
 
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -68,8 +68,8 @@ jobs:
       
       
     - name: Create new image
-      run: docker commit jobs-container asteriosman/jobs:latest
+      run: docker commit jobs-container asteriosman/jobs:jobs
 
     - name: Push new image
-      run: docker push asteriosman/jobs:latest
+      run: docker push asteriosman/jobs:jobs
 

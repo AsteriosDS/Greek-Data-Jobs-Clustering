@@ -21,7 +21,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::150031404574:role/github
-        role-duration-seconds: 4000 # the ttl of the session, in seconds.
+        role-duration-seconds: 3600 # the ttl of the session, in seconds.
         aws-region: eu-west-3 # use your region here.
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

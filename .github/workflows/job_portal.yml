@@ -6,7 +6,7 @@ on:
     - cron: '0 12 * * 1-5'
 
 jobs:
-  pull-and-run:
+  scraping:
     runs-on: ubuntu-latest
 
     steps:

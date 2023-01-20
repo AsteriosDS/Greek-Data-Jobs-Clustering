@@ -20,7 +20,7 @@ jobs:
       run: |
         docker pull asteriosman/jobs:jobs
         docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:jobs
-        run psql -U postgres -d postgres -a -f /docker-entrypoint-initdb.d/new.sql
+        psql -U postgres -d postgres -a -f /docker-entrypoint-initdb.d/new.sql
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: repo 

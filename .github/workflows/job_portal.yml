@@ -68,8 +68,8 @@ jobs:
       
       
     - name: Create new image
-      run: docker commit jobs-container asteriosman/jobs:jobs
+      run: docker commit jobs-container asteriosman/jobs:empty
 
     - name: Push new image
-      run: docker push asteriosman/jobs:jobs
+      run: docker push asteriosman/jobs:empty
 

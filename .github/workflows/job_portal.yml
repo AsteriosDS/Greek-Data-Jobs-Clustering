@@ -16,13 +16,11 @@ jobs:
     - name: Log in to Docker Hub
       run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
-    - name: Pull container image
-      run: docker pull asteriosman/jobs:jobs
+    - name: Pull and run container
+      run: |
+        docker pull asteriosman/jobs:jobs
+        docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:jobs
 
-    - name: Run container
-      run: docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:jobs
-
-      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: repo 
       name: Repo Checkout

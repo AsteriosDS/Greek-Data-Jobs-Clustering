@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 12 * * 1-5'
+    
+permissions:
+  id-token: write # required to use OIDC authentication
+  contents: read # required to checkout the code from the repo
 
 jobs:
   pull-and-run:
@@ -13,16 +17,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Log in to Docker Hub
-      run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::150031404574:role/github
+        role-duration-seconds: 3600 # the ttl of the session, in seconds.
+        aws-region: eu-west-3 # use your region here.
 
-    - name: Pull container image
-      run: docker pull asteriosman/jobs:latest
-
-    - name: Run container
-      run: docker run -d --name jobs-container -p 5432:5432 asteriosman/jobs:latest
-
-      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: repo 
       name: Repo Checkout
@@ -65,11 +66,3 @@ jobs:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
 
         username: github-actions
-      
-      
-    - name: Create new image
-      run: docker commit jobs-container asteriosman/jobs:latest
-
-    - name: Push new image
-      run: docker push asteriosman/jobs:latest
-

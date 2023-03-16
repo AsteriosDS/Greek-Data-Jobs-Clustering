@@ -1,4 +1,5 @@
 jupyterlab
+futures3
 nbclient
 requests
 bs4

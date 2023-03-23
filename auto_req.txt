@@ -11,3 +11,11 @@ requests_html
 psycopg2
 swifter
 geopy
+nltk
+gensim
+sklearn
+spacy
+matplotlib
+plotly
+seaborn
+skillNer

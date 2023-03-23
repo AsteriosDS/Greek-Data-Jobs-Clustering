@@ -13,7 +13,7 @@ swifter
 geopy
 nltk
 gensim
-sklearn
+scikit-learn
 spacy
 matplotlib
 plotly

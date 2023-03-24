@@ -44,6 +44,9 @@ avg = pickle.load(open('avg.pkl','rb'))
 # cluster with the max avg silhouette score
 best_cluster_num = max(avg, key=avg.get)
 
+# unique job titles
+job_titles = [i for i in df['job_title'].unique()]
+
 with tab1:
 
     st.title('Web Scraped Job Board')

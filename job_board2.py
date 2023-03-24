@@ -178,7 +178,7 @@ with tab2:
     # Create the plot
     fig = go.Figure(data=[
         go.Scatter(
-            x=[i + 2 for i in range(len(cluster_sizes))],
+            x=[i + 4 for i in range(len(cluster_sizes))],
             y=[5 for i in range(len(cluster_sizes))],
             text=text_labels,
             mode='markers',

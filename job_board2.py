@@ -13,6 +13,19 @@ import pickle
 import seaborn as sns
 import plotly.graph_objs as go
 
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="centered",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
+
+
 tab1, tab2 = st.tabs(["Job_Board", "Clustering"])
 
 
@@ -26,19 +39,6 @@ df = pd.read_csv(job_board)
 skill_df = pd.read_csv(skill_df)
 embeddings_3d = pd.read_csv(embeddings_3d)
 kmeans = pickle.load(open('model.pkl','rb'))
-
-
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🧊",
-    layout="centered",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
-)
 
 
 with tab1:

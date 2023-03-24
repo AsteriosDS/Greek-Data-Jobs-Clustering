@@ -204,4 +204,4 @@ with tab2:
         yaxis_title="",
     )
 
-    st.pyplot(fig)
+    st.plotly_chart(fig)

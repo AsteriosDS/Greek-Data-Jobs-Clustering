@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import pandas as pd
+import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 import base64
@@ -33,8 +34,6 @@ path = os.path.dirname(__file__)
 job_board = path+'/job_board.csv'
 skill_df = path+'/skill_df.csv'
 embeddings_3d = path+'/embeddings_3d.csv'
-model =  path+'/model.pkl'
-dic = path+'/avg.pkl'
 
 df = pd.read_csv(job_board)
 skill_df = pd.read_csv(skill_df)
@@ -122,7 +121,7 @@ with tab2:
     # create a trace for each cluster
     data = []
     for i in range(best_cluster_num):
-        cluster = embeddings_3d[kmeans.labels_ == i]
+        cluster = np.array(embeddings_3d)[kmeans.labels_ == i]
         trace = go.Scatter3d(x=cluster[:, 0],
                              y=cluster[:, 1],
                              z=cluster[:, 2],

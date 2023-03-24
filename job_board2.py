@@ -52,6 +52,8 @@ df_c.drop_duplicates(['job_title', 'company'], keep='first', inplace=True)
 # unique job titles
 job_titles = [i for i in df_c['job_title'].unique()]
 
+# max silhoutte score
+max_score = max(avg.values())
 
 with tab1:
 

@@ -34,12 +34,16 @@ job_board = path+'/job_board.csv'
 skill_df = path+'/skill_df.csv'
 embeddings_3d = path+'/embeddings_3d.csv'
 model =  path+'/model.pkl'
+dic = path+'/avg.pkl'
 
 df = pd.read_csv(job_board)
 skill_df = pd.read_csv(skill_df)
 embeddings_3d = pd.read_csv(embeddings_3d)
 kmeans = pickle.load(open('model.pkl','rb'))
+avg = pickle.load(open('avg.pkl','rb'))
 
+# cluster with the max avg silhouette score
+best_cluster_num = max(avg, key=avg.get)
 
 with tab1:
 

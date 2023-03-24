@@ -34,8 +34,10 @@ path = os.path.dirname(__file__)
 job_board = path+'/job_board.csv'
 skill_df = path+'/skill_df.csv'
 embeddings_3d = path+'/embeddings_3d.csv'
+df_c = path+'/df_c.csv'
 
 df = pd.read_csv(job_board)
+df_c = pd.read_csv(df_c)
 skill_df = pd.read_csv(skill_df)
 embeddings_3d = pd.read_csv(embeddings_3d)
 kmeans = pickle.load(open('model.pkl','rb'))
@@ -45,10 +47,10 @@ avg = pickle.load(open('avg.pkl','rb'))
 best_cluster_num = max(avg, key=avg.get)
 
 # drop duplicates that evaded our previous fingerprint
-df.drop_duplicates(['job_title', 'company'], keep='first', inplace=True)
+df_c.drop_duplicates(['job_title', 'company'], keep='first', inplace=True)
 
 # unique job titles
-job_titles = [i for i in df['job_title'].unique()]
+job_titles = [i for i in df_c['job_title'].unique()]
 
 
 with tab1:

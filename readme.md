@@ -1,6 +1,6 @@
 # Web Scraped Job Portal Project
 ---
-# Interactive dashboard: [click here](https://asteriosds-web-scraped-job-board-job-board-7qcnzx.streamlit.app/)
+# Interactive dashboard: [click here](https://asteriosds-web-scraped-job-board-job-board2-z98535.streamlit.app/)
 ---
 ## Project Description:
 ---

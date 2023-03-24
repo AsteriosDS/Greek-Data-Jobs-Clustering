@@ -47,6 +47,9 @@ best_cluster_num = max(avg, key=avg.get)
 # unique job titles
 job_titles = [i for i in df['job_title'].unique()]
 
+# drop duplicates that evaded our previous fingerprint
+df.drop_duplicates(['job_title', 'company'], keep='first', inplace=True)
+
 with tab1:
 
     st.title('Web Scraped Job Board')

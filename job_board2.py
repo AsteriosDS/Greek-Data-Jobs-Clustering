@@ -159,3 +159,49 @@ with tab2:
     # plot figure
     fig = go.Figure(data=data, layout=layout)
     st.plotly_chart(fig)
+    
+    # Create a list of cluster IDs and their corresponding sizes
+    cluster_sizes = skill_df.groupby('cluster').size().tolist()
+
+    # Define the number of clusters and generate a corresponding color scale
+    n_clusters = len(cluster_sizes)
+    palette = sns.color_palette("Paired", n_clusters).as_hex()
+    color_scale = [[i / (n_clusters - 1), color]
+                   for i, color in enumerate(palette)]
+
+    # Create a list of text labels for each marker (i.e. job titles in each cluster)
+    text_labels = []
+    for cluster_id in range(len(cluster_sizes)):
+        jobs = skill_df.loc[skill_df['cluster'] == cluster_id, 'job_title']
+        text_labels.append('<br>'.join(jobs))
+
+    # Create the plot
+    fig = go.Figure(data=[
+        go.Scatter(
+            x=[i + 1 for i in range(len(cluster_sizes))],
+            y=[5 for i in range(len(cluster_sizes))],
+            text=text_labels,
+            mode='markers',
+            marker=dict(
+                color=cluster_sizes,
+                colorscale=color_scale,
+                size=cluster_sizes,
+                sizemode='diameter',
+                sizeref=max(cluster_sizes) / 100  # adjust the size scaling
+            ))
+    ])
+
+    fig.update_layout(
+        title={
+            'text':
+            f'Job Titles Clustered by Job Skills (t-SNE, 2D) with a silhouette score of {str(max_score)[:5]}',
+            'y': 0.95,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'
+        },
+        xaxis_title="Cluster Number",
+        yaxis_title="",
+    )
+
+    st.pyplot(fig)

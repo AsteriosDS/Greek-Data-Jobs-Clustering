@@ -227,15 +227,15 @@ with tab3:
     overlap_matrix = []
 
     # Loop through the job titles and calculate the overlaps with all other job titles
-    for i, title1 in enumerate(job_titles):
+    for i, title1 in enumerate(titles):
         row = []
-        for j, title2 in enumerate(job_titles):
-            overlap = skill_overlap(job_skills[i], job_skills[j])
+        for j, title2 in enumerate(titles):
+            overlap = skill_overlap(skills[i], skills[j])
             row.append(overlap)
         overlap_matrix.append(row)
 
     # Convert the overlap matrix to a DataFrame
-    mt = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
+    mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
     
     fig, ax = plt.subplots()
     sns.heatmap(mt, ax=ax)

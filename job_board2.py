@@ -27,7 +27,7 @@ st.set_page_config(
 )
 
 
-tab1, tab2, tab3 = st.tabs(["Job Board", "Clustering", 'Skillz'])
+tab1, tab2 = st.tabs(["Job Board", "Clustering"])
 
 
 path = os.path.dirname(__file__)
@@ -205,37 +205,3 @@ with tab2:
     )
 
     st.plotly_chart(fig)
-
-with tab3:
-    st.header('Investigating skill overlap between jobs')           
-    def skill_overlap(x,y):
-        over = round(len([1 for i in x if i in y]) / len(x),2)
-        return over
-    
-    # Define the job titles and corresponding lists of skills
-    eng = skill_df[skill_df['job_title'].str.contains('Data Engineer')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
-    sci = skill_df[skill_df['job_title'].str.contains('Data Scientist')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
-    ana = skill_df[skill_df['job_title'].str.contains('Data Analyst')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
-
-    titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
-    skills = [eng, sci, ana]
-
-    # Initialize an empty matrix to store the overlaps
-    overlap_matrix = []
-
-    # Loop through the job titles and calculate the overlaps with all other job titles
-    for i, title1 in enumerate(titles):
-        row = []
-        for j, title2 in enumerate(titles):
-            overlap = skill_overlap(skills[i], skills[j])
-            row.append(overlap)
-        overlap_matrix.append(row)
-
-    # Convert the overlap matrix to a DataFrame
-    mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
-
-    heatmap = sns.heatmap(mt, annot=True, cmap='coolwarm', fmt='.2f')
-    st.pyplot(heatmap)

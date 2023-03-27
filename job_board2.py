@@ -238,5 +238,5 @@ with tab3:
     mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
     
     fig, ax = plt.subplots()
-    sns.heatmap(mt, ax=ax)
+    sns.heatmap(mt, annot=True, cmap='coolwarm', ax=ax)
     st.write(fig)

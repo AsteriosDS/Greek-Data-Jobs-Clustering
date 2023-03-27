@@ -238,4 +238,4 @@ with tab3:
     mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
 
     heatmap = sns.heatmap(mt, annot=True, cmap='coolwarm', fmt='.2f')
-    st.pyplot(heatmap.figure)
+    st.pyplot(heatmap)

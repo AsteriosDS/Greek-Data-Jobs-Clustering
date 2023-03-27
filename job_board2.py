@@ -207,7 +207,7 @@ with tab2:
     st.plotly_chart(fig)
 
 with tab3:
-    st.title('Investigating skill overlap between jobs')           
+    st.header('Investigating skill overlap between jobs')           
     def skill_overlap(x,y):
         over = round(len([1 for i in x if i in y]) / len(x),2)
         return over
@@ -237,6 +237,6 @@ with tab3:
     # Convert the overlap matrix to a DataFrame
     mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
     
-    fig, ax = plt.subplots()
-    sns.heatmap(mt, annot=True, cmap='coolwarm', ax=ax)
+    fig = plt.figure()
+    sns.heatmap(mt, annot=True, cmap='coolwarm')
     st.write(fig)

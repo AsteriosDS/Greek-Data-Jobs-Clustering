@@ -31,4 +31,4 @@
 7. #### **job_board2.py** is the python file that the dashboard is built on.
 8. #### **requirements.txt** is the file with the environment requirements needed for Streamlit deployment.
 9. #### **skill_df.csv** Dataframe containing the skills extracted for each job along with their cluster assignment.
-10. #### **kill_db_relax_20.json** and **token_dist.json** json files needed for the skillNer library/db.
+10. #### **skill_db_relax_20.json** and **token_dist.json** json files needed for the skillNer library/db.

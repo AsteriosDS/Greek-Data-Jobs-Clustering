@@ -239,4 +239,4 @@ with tab3:
     
     fig = plt.figure(figsize=(8,5))
     sns.heatmap(mt, annot=True, cmap='coolwarm')
-    st.write(fig)
+    st.pyplot(fig)

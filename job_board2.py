@@ -237,4 +237,6 @@ with tab3:
     # Convert the overlap matrix to a DataFrame
     mt = pd.DataFrame(overlap_matrix, columns=titles, index=titles)
 
-    st.pyplot(sns.heatmap(mt, annot=True, cmap='coolwarm', fmt='.2f'))
+    fig = plt.figure()
+    sns.heatmap(mt, annot=True, cmap='coolwarm', fmt='.2f')
+    st.pyplot(fig)

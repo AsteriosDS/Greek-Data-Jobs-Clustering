@@ -209,9 +209,7 @@ with tab2:
 with tab3:
     st.title('Investigating skill overlap between jobs')           
     def skill_overlap(x,y):
-        
         over = round(len([1 for i in x if i in y]) / len(x),2)
-
         return over
     
     # Define the job titles and corresponding lists of skills

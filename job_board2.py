@@ -187,7 +187,7 @@ with tab2:
                 colorscale=color_scale,
                 size=cluster_sizes,
                 sizemode='diameter',
-                sizeref=max(cluster_sizes) / 80  # adjust the size scaling
+                sizeref=max(cluster_sizes) / 70  # adjust the size scaling
             ))
     ])
 

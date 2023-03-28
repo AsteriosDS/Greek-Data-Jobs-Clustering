@@ -214,13 +214,14 @@ with tab3:
         over = round(len([1 for i in x if i in y]) / len(x),2)
 
         return over
+
     # Define the job titles and corresponding lists of skills
-    eng = skill_df[skill_df['job_title'].str.contains('Data Engineer')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
-    sci = skill_df[skill_df['job_title'].str.contains('Data Scientist')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
-    ana = skill_df[skill_df['job_title'].str.contains('Data Analyst')].explode(
-        'skills')['skills'].value_counts().reset_index()['index'].tolist()
+    eng = skill_df[skill_df['job_title'].str.contains('Data Engineer')]['skills'].apply(
+        lambda x: eval(x)).explode().tolist()
+    sci = skill_df[skill_df['job_title'].str.contains('Data Scientist')]['skills'].apply(
+        lambda x: eval(x)).explode().tolist()
+    ana = skill_df[skill_df['job_title'].str.contains('Data Analyst')]['skills'].apply(
+        lambda x: eval(x)).explode().tolist()
 
     job_titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
     job_skills = [eng, sci, ana]

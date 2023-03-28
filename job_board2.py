@@ -28,7 +28,7 @@ st.set_page_config(
 )
 
 
-tab1, tab2, tab3 = st.tabs(["Job Board", "Clustering", 'Skillz])
+tab1, tab2, tab3 = st.tabs(["Job Board", "Clustering", 'Skillz'])
 
 
 path = os.path.dirname(__file__)

@@ -223,17 +223,17 @@ with tab3:
     ana = skill_df[skill_df['job_title'].str.contains('Data Analyst')].explode(
         'skills')['skills'].value_counts().reset_index()['index'].tolist()
 
-    titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
-    skills = [eng, sci, ana]
+    job_titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
+    job_skills = [eng, sci, ana]
 
     # Initialize an empty matrix to store the overlaps
     overlap_matrix = []
 
     # Loop through the job titles and calculate the overlaps with all other job titles
-    for i, title1 in enumerate(titles):
+    for i, title1 in enumerate(job_titles):
         row = []
-        for j, title2 in enumerate(titles):
-            overlap = skill_overlap(skills[i], skills[j])
+        for j, title2 in enumerate(job_titles):
+            overlap = skill_overlap(job_skills[i], job_skills[j])
             row.append(overlap)
         overlap_matrix.append(row)
 

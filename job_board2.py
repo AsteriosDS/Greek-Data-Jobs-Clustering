@@ -240,7 +240,7 @@ with tab3:
         st.write(f'Top 10 skills for {selected_job_title}:')
         st.write(top_skills)
     
-    st.header('Skill overlap between them')
+    st.header('Skill overlap between them:')
     
     # Initialize an empty matrix to store the overlaps
     overlap_matrix = []

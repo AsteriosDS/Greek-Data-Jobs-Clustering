@@ -13,7 +13,6 @@ import os
 import pickle
 import seaborn as sns
 import plotly.graph_objs as go
-import plotly.express as px
 
 st.set_page_config(
     page_title="Ex-stream-ly Cool App",
@@ -237,6 +236,6 @@ with tab3:
             row.append(overlap)
         overlap_matrix.append(row)
 
-    fig = plt.figure( 
-    sns.heatmap(overlap_matrix, annot=True)
-        st.write(fig)
+    fig, ax = plt.subplots(figsize=(10,10))
+    st.write(sns.heatmap(overlap_matrix, annot=True, linewidths=0.5))
+    st.pyplot()

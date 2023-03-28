@@ -207,7 +207,7 @@ with tab2:
     st.plotly_chart(fig)
 
 with tab3:
-    st.header('Top 10 Skills and Skill Overlap between the three main roles:')
+    st.header('Top 10 Skills of the three main roles:')
     
     def skill_overlap(x,y):
         """
@@ -239,6 +239,8 @@ with tab3:
         top_skills = get_top_skills(selected_job_title)
         st.write(f'Top 10 skills for {selected_job_title}:')
         st.write(top_skills)
+    
+    st.header('Skill overlap between them'):
     
     # Initialize an empty matrix to store the overlaps
     overlap_matrix = []

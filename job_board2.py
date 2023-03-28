@@ -28,7 +28,7 @@ st.set_page_config(
 )
 
 
-tab1, tab2 = st.tabs(["Job Board", "Clustering"])
+tab1, tab2, tab3 = st.tabs(["Job Board", "Clustering", 'Skillz])
 
 
 path = os.path.dirname(__file__)
@@ -206,3 +206,36 @@ with tab2:
     )
 
     st.plotly_chart(fig)
+
+with tab3:
+    def skill_overlap(x,y):
+        """
+            x job is over% similar to y job
+        """
+        over = round(len([1 for i in x if i in y]) / len(x),2)
+
+        return over
+    # Define the job titles and corresponding lists of skills
+    eng = skill_df[skill_df['job_title'].str.contains('Data Engineer')].explode(
+        'skills')['skills'].value_counts().reset_index()['index'].tolist()
+    sci = skill_df[skill_df['job_title'].str.contains('Data Scientist')].explode(
+        'skills')['skills'].value_counts().reset_index()['index'].tolist()
+    ana = skill_df[skill_df['job_title'].str.contains('Data Analyst')].explode(
+        'skills')['skills'].value_counts().reset_index()['index'].tolist()
+
+    titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
+    skills = [eng, sci, ana]
+
+    # Initialize an empty matrix to store the overlaps
+    overlap_matrix = []
+
+    # Loop through the job titles and calculate the overlaps with all other job titles
+    for i, title1 in enumerate(job_titles):
+        row = []
+        for j, title2 in enumerate(job_titles):
+            overlap = skill_overlap(job_skills[i], job_skills[j])
+            row.append(overlap)
+        overlap_matrix.append(row)
+
+    fig = px.imshow(overlap_matrix, text_auto=True)
+    st.plotly_chart(fig, theme='streamlit)

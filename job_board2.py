@@ -238,4 +238,4 @@ with tab3:
 
     om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
     
-    om.style.background_gradient(axis=None, cmap="coolwarm").applymap(color_hide_nan)
+    om.style.background_gradient(axis=None, cmap="coolwarm").applymap()

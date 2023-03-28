@@ -207,6 +207,7 @@ with tab2:
     st.plotly_chart(fig)
 
 with tab3:
+    st.header('Top Skills and Skill Overlap between three main roles')
     def skill_overlap(x,y):
         """
             x job is over% similar to y job
@@ -240,6 +241,6 @@ with tab3:
     om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
     
     with sns.axes_style("white"):
-        f, ax = plt.subplots(figsize=(7, 5))
+        f, ax = plt.subplots(figsize=(8, 5))
         ax = sns.heatmap(om, vmax=1, square=True, annot=True, cmap='coolwarm')
     st.pyplot(f)

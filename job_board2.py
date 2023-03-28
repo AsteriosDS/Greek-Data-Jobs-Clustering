@@ -228,7 +228,7 @@ with tab3:
     job_titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
     job_skills = [eng, sci, ana]
 
-    selected_job_title = st.button_group('Select a job title', job_titles)
+    selected_job_title = st.selectbox('Select a job title', job_titles)
 
     def get_top_skills(selected_job_title):
         skills = skill_df[skill_df['job_title'].str.contains(selected_job_title)]['skills'].apply(

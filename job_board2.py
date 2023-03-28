@@ -238,6 +238,4 @@ with tab3:
 
     om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
     
-    fig, ax = plt.subplots(figsize=(10,10))
-    st.write(sns.heatmap(om, annot=True, linewidths=0.5))
-    st.pyplot(fig)
+    om.style.background_gradient(axis=None, cmap="coolwarm").applymap(color_hide_nan)

@@ -238,4 +238,4 @@ with tab3:
 
     fig, ax = plt.subplots(figsize=(10,10))
     st.write(sns.heatmap(overlap_matrix, annot=True, linewidths=0.5))
-    st.pyplot()
+    st.pyplot(fig)

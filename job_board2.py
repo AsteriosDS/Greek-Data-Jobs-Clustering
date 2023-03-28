@@ -228,6 +228,18 @@ with tab3:
     job_titles = ['Data Engineer', 'Data Scientist', 'Data Analyst']
     job_skills = [eng, sci, ana]
 
+    selected_job_title = st.button_group('Select a job title', job_titles)
+
+    def get_top_skills(selected_job_title):
+        skills = skill_df[skill_df['job_title'].str.contains(selected_job_title)]['skills'].apply(
+            lambda x: eval(str(x))).explode().value_counts().reset_index()['index'].head(10).tolist()
+        return skills
+
+    if selected_job_title:
+        top_skills = get_top_skills(selected_job_title)
+        st.write(f'Top 10 skills for {selected_job_title}:')
+        st.write(top_skills)
+    
     # Initialize an empty matrix to store the overlaps
     overlap_matrix = []
 

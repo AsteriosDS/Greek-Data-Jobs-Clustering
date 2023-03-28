@@ -13,7 +13,7 @@ import os
 import pickle
 import seaborn as sns
 import plotly.graph_objs as go
-import plotly express as px
+import plotly.express as px
 
 st.set_page_config(
     page_title="Ex-stream-ly Cool App",

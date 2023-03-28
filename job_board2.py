@@ -241,5 +241,5 @@ with tab3:
     
     with sns.axes_style("white"):
         f, ax = plt.subplots(figsize=(7, 5))
-        ax = sns.heatmap(om, vmax=1, square=True)
+        ax = sns.heatmap(om, vmax=1, square=True, annot=True, cmap='coolwarm')
     st.pyplot(f)

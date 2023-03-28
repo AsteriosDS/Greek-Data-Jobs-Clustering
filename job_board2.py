@@ -237,5 +237,6 @@ with tab3:
             row.append(overlap)
         overlap_matrix.append(row)
 
-    fig = px.imshow(overlap_matrix, text_auto=True)
-    st.plotly_chart(fig, theme='streamlit')
+    fig = plt.figure( 
+    sns.heatmap(overlap_matrix, annot=True)
+    st.plotly_chart(fig)

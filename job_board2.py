@@ -242,6 +242,6 @@ with tab3:
     om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
     
     with sns.axes_style("white"):
-        f, ax = plt.subplots(figsize=(6, 4))
+        f, ax = plt.subplots(figsize=(5, 8))
         ax = sns.heatmap(om, vmax=1, square=True, annot=True, cmap='coolwarm')
     st.pyplot(f)

@@ -236,6 +236,8 @@ with tab3:
             row.append(overlap)
         overlap_matrix.append(row)
 
+    om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
+    
     fig, ax = plt.subplots(figsize=(10,10))
-    st.write(sns.heatmap(overlap_matrix, annot=True, linewidths=0.5))
+    st.write(sns.heatmap(om, annot=True, linewidths=0.5))
     st.pyplot(fig)

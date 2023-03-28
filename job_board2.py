@@ -239,5 +239,5 @@ with tab3:
     om = pd.DataFrame(overlap_matrix, columns=job_titles, index=job_titles)
     
     fig = plt.figure()
-    sns.heatmap(df,annot=True, cmap='coolwarm')
+    sns.heatmap(om, annot=True, cmap='coolwarm')
     st.pyplot(fig)

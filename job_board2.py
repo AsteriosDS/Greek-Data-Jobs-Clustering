@@ -207,6 +207,7 @@ with tab2:
     st.plotly_chart(fig)
 
 with tab3:
+    st.write(skill_df)
     st.header('Top 10 Skills of the three main roles:')
     
     def skill_overlap(x,y):

@@ -1,6 +1,6 @@
 # Web Scraped Job Board and Job Clustering
 ---
-# Interactive dashboard: [click here](https://asteriosds-web-scraped-job-board-job-board2-z98535.streamlit.app/)
+# Interactive dashboard: [click here](https://asteriosds-greek-data-jobs-clustering-job-board2-bpwvki.streamlit.app/)
 ---
 ## Project Description:
 ---

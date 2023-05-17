@@ -231,8 +231,9 @@ with tab3:
     selected_job_title = st.selectbox('Select a job title', job_titles)
 
     def get_top_skills(selected_job_title):
-        skills = skill_df[skill_df['job_title'].str.contains(selected_job_title)]['skills'].apply(
-            lambda x: eval(str(x))).explode().value_counts().reset_index()['index'].head(10).tolist()
+        skills = skill_df[skill_df['job_title'].str.contains(
+            selected_job_title)]['skills'].apply(lambda x: eval(str(x))).explode(
+            ).value_counts().index[:10].values.tolist()
         return skills
 
     if selected_job_title:

@@ -49,6 +49,9 @@ best_cluster_num = max(avg, key=avg.get)
 # drop duplicates that evaded our previous fingerprint
 df_c.drop_duplicates(['job_title', 'company'], keep='first', inplace=True)
 
+# hot-fix experience levels
+df['level'] = df['level'].str.replace(' ', '').str.replace('level','').str.replace('-','')
+
 # unique job titles
 job_titles = [i for i in df_c['job_title'].unique()]
 

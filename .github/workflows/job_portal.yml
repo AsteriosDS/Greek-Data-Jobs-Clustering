@@ -1,9 +1,9 @@
 name: Automated Job Portal
 
 on:
-  # workflow_dispatch:
-  schedule:
-    - cron: '0 12 * * 1-5'
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 12 * * 1-5'
 
 jobs:
   scraping:
